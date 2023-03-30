@@ -6,7 +6,7 @@ export interface ApiListResponse {
 }
 
 export interface ApiPageResponse {
-  pgCount: number;
+  pageCount: number;
   total: number;
   pageNumber: number;
   pageSize: number;
@@ -50,6 +50,25 @@ export interface FileDto {
   thumbnail?: string;
   url?: string;
   download?: string;
+}
+
+export interface ProgramFn {
+  fn01?: string; // 조회
+  fn02?: string; // 저장
+  fn03?: string; // 삭제
+  fn04?: string; // 엑셀
+  fn05?: string;
+  fn06?: string;
+  fn07?: string;
+  fn08?: string;
+  fn09?: string;
+  fn10?: string;
+  fn11?: string;
+  fn12?: string;
+  fn13?: string;
+  fn14?: string;
+  fn15?: string;
+  fn16?: string;
 }
 
 export * from "./error";

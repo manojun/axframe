@@ -1,13 +1,21 @@
 import { delay } from "@core/utils/thread/timing";
-import { SignInRequest, SignInResponse, UserRepositoryInterface } from "./UserRepositoryInterface";
+import {
+  GetProgramFnRequest,
+  GetProgramFnResponse,
+  PutChangePwRequest,
+  PutChangePwResponse,
+  SignInRequest,
+  SignInResponse,
+  UserRepositoryInterface,
+} from "./UserRepositoryInterface";
 import { setApiHeader } from "../apiWrapper";
 import { setAppData } from "../../@core/utils/store";
 import pkg from "../../../package.json";
 import { v4 as uuidv4 } from "uuid";
 
 export class UserRepositoryMock implements UserRepositoryInterface {
-  public async signIn(params: SignInRequest): Promise<SignInResponse> {
-    await delay(500);
+  async signIn(params: SignInRequest): Promise<SignInResponse> {
+    await delay(300);
 
     const headers = {
       authorization: uuidv4(),
@@ -50,5 +58,34 @@ export class UserRepositoryMock implements UserRepositoryInterface {
 
   signOut(): Promise<void> {
     return Promise.resolve(undefined);
+  }
+
+  async getProgramFn(params: GetProgramFnRequest): Promise<GetProgramFnResponse> {
+    await delay(100);
+    return {
+      ds: [
+        {
+          key: "fn01",
+          label: "검색",
+        },
+        {
+          key: "fn02",
+          label: "저장",
+        },
+        {
+          key: "fn03",
+          label: "삭제",
+        },
+        {
+          key: "fn04",
+          label: "엑셀",
+        },
+      ],
+    };
+  }
+
+  async putChangePw(params: PutChangePwRequest): Promise<PutChangePwResponse> {
+    await delay(300);
+    return {};
   }
 }
