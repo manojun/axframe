@@ -6,6 +6,8 @@ export * from "./IconSideBarClosed";
 export * from "./IconSideBarOpen";
 export * from "./IconUser";
 export * from "./IconZoom";
+export * from "./IconAXFrameOpened";
+export * from "./IconAXFrame";
 export * from "./PeatIconCalc";
 export * from "./PeatIconCustomer";
 export * from "./PeatIconCustomerCalc";

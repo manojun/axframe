@@ -109,44 +109,44 @@ function App({}: Props) {
             <SignInBoxBody>
               <Form<SignInFormItem> form={form} onFinish={onSignIn} layout={"vertical"}>
                 <Form.Item
-                  label={t.formItem.user.userId.label}
+                  label={t.pages.signIn.label.userId}
                   name='userId'
                   rules={[
                     {
                       required: true,
                       pattern: getTrimNonEmptyRegExp(),
-                      message: t.formItem.user.userId.msg.empty,
+                      message: t.pages.signIn.msg.userId_empty,
                     },
                   ]}
                 >
-                  <Input prefix={<IdcardOutlined />} placeholder={t.formItem.user.userId.placeholder} allowClear />
+                  <Input prefix={<IdcardOutlined />} placeholder={t.pages.signIn.placeholder.userId} allowClear />
                 </Form.Item>
 
                 <Form.Item
-                  label={t.formItem.user.password.label}
+                  label={t.pages.signIn.label.password}
                   name='password'
                   rules={[
                     {
                       required: true,
                       pattern: getTrimNonEmptyRegExp(),
-                      message: t.formItem.user.password.msg.empty,
+                      message: t.pages.signIn.msg.password_empty,
                     },
                   ]}
                 >
                   <Input.Password
                     prefix={<LockOutlined />}
-                    placeholder={t.formItem.user.password.placeholder}
+                    placeholder={t.pages.signIn.placeholder.password}
                     allowClear
                   />
                 </Form.Item>
 
                 <Form.Item>
                   <Form.Item name='remember' valuePropName='checked' noStyle>
-                    <Checkbox>Remember ID</Checkbox>
+                    <Checkbox>{t.pages.signIn.label.rememberId}</Checkbox>
                   </Form.Item>
 
                   <a className='reset-password' href=''>
-                    Reset password
+                    {t.pages.signIn.label.resetPassword}
                   </a>
                 </Form.Item>
                 <Divider />

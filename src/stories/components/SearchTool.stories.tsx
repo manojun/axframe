@@ -25,19 +25,19 @@ export const ParamObjects = () => {
       form={form}
       params={[
         {
-          label: t.formItem.example.area.label,
+          label: t.pages.example.form.area.label,
           name: "select1",
           type: SearchParamType.SELECT,
-          options: t.formItem.example.area.options,
+          options: t.pages.example.form.area.options,
         },
         {
-          label: t.formItem.example.cnsltHow.label,
+          label: t.pages.example.form.cnsltHow.label,
           name: "select2",
           type: SearchParamType.SELECT,
-          options: t.formItem.example.cnsltHow.options,
+          options: t.pages.example.form.cnsltHow.options,
         },
         {
-          label: t.formItem.example.cnsltDt.label,
+          label: t.pages.example.form.cnsltDt.label,
           name: "timeRange",
           type: SearchParamType.TIME_RANGE,
         },
@@ -57,13 +57,13 @@ export const ExtraButtons = () => {
           label: "S1",
           name: "select1",
           type: SearchParamType.SELECT,
-          options: t.formItem.example.area.options,
+          options: t.pages.example.form.area.options,
         },
         {
           label: "S2",
           name: "select2",
           type: SearchParamType.SELECT,
-          options: t.formItem.example.cnsltHow.options,
+          options: t.pages.example.form.cnsltHow.options,
         },
       ]}
       extraButtons={() => (

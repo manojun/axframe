@@ -3,6 +3,7 @@ import { ApiError } from "./ApiError";
 import { ApiErrorCode } from "../@types";
 import { getAppData, setAppData } from "../@core/utils/store";
 import { useUserStore } from "../stores";
+import {delay} from "../@core/utils/thread/timing";
 
 export const API_PHASE = process.env.API_PHASE;
 export const API_URL = (() => {
@@ -36,6 +37,7 @@ const prepareRequest = async (config: AxiosRequestConfig) => {
 
 export interface ApiRequestConfig extends AxiosRequestConfig {
   tryTime?: number;
+  ignoreError?: boolean;
 }
 
 export const apiWrapper = async <P>(method: string, route: string, body?: any, config: ApiRequestConfig = {}) => {
@@ -76,12 +78,9 @@ export const apiWrapper = async <P>(method: string, route: string, body?: any, c
     throw { code: "ERR" };
   }
 
-  // console.group("apiWrapper axios call start");
-  // console.info("bodyArr", bodyArr);
   const { data, ...rest } = await _axios[method](...bodyArr);
-  // console.groupEnd();
 
-  if (data.error && data.error.code) {
+  if (!config.ignoreError && data.error && data.error.code) {
     const tryTime = config.tryTime ?? 0;
 
     if (data.error.code === ApiErrorCode.EXPIRED_TOKEN && tryTime < 1) {
@@ -93,14 +92,13 @@ export const apiWrapper = async <P>(method: string, route: string, body?: any, c
           },
         });
         if (_data.error && _data.error.code) {
+          await delay(10);
           if (_data.error.code === ApiErrorCode.INVALID_TOKEN) {
-            // logout
             await useUserStore.getState().signOut();
           }
           throw new ApiError(_data.error.code, _data.error.message);
         }
 
-        console.log("_data.rs", _data.rs);
         if (_data && _data.rs.Authorization && _data.rs.Token) {
           setApiHeader(_data.rs.Authorization);
           setAppData({

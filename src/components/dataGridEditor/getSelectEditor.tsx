@@ -1,24 +1,19 @@
 import * as React from "react";
 import styled from "@emotion/styled";
-import { AXFDGItemRenderProps, getCellValueByRowKey } from "@axframe/datagrid";
+import { AXFDGItemRenderProps } from "@axframe/datagrid";
 import { Select } from "antd";
 
 export function getSelectEditor(options: { label: string; value: any }[]) {
   return function GetSelectEditor<T = Record<string, any>>({
     editable,
-    item,
-    column,
-    values,
+    value,
     handleSave,
     handleCancel,
     handleMove,
   }: AXFDGItemRenderProps<T>) {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const currentValue = React.useMemo(() => getCellValueByRowKey(column.key, item), [column, item, editable]);
-
     const handleSaveEdit = React.useCallback(
       (newValue: any, ...rest: any) => {
-        if (currentValue === newValue) {
+        if (value === newValue) {
           handleCancel?.();
           const [a, b] = rest;
           handleMove?.(a, b);
@@ -26,7 +21,7 @@ export function getSelectEditor(options: { label: string; value: any }[]) {
         }
         handleSave?.(newValue, ...rest);
       },
-      [currentValue, handleCancel, handleSave, handleMove]
+      [value, handleCancel, handleSave, handleMove]
     );
 
     const onKeyDown = React.useCallback<React.KeyboardEventHandler<HTMLInputElement>>(
@@ -76,25 +71,23 @@ export function getSelectEditor(options: { label: string; value: any }[]) {
       [handleSaveEdit, handleCancel]
     );
 
-    if (editable) {
-      return (
-        <Container>
-          <Select
-            bordered={false}
-            size={"small"}
-            autoFocus
-            open
-            options={options}
-            defaultValue={currentValue}
-            onSelect={onSelect}
-            onBlur={onBlur}
-            onKeyDown={onKeyDown}
-          />
-        </Container>
-      );
-    }
+    return (
+      <Container>
+        <Select
+          bordered={false}
+          size={"small"}
+          // autoFocus
+          // open
+          options={options}
+          value={value}
+          onSelect={onSelect}
+          onBlur={onBlur}
+          onKeyDown={onKeyDown}
+        />
+      </Container>
+    );
 
-    return <>{options.find((o) => o.value === currentValue)?.label ?? currentValue}</>;
+    // return <>{options.find((o) => o.value === value)?.label ?? value}</>;
   };
 }
 
@@ -111,6 +104,10 @@ const Container = styled.div`
     width: 100%;
     .ant-select-selector {
       padding: 0 !important;
+    }
+
+    .ant-select-arrow {
+      inset-inline-end: -3px;
     }
   }
 `;

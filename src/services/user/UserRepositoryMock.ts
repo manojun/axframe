@@ -58,6 +58,9 @@ export class UserRepositoryMock implements UserRepositoryInterface {
 
   signOut(): Promise<void> {
     return Promise.resolve(undefined);
+
+    // await apiWrapper<SignInResponse>("get", "/v1/users/logout", {}, { ignoreError: true });
+    // return;
   }
 
   async getProgramFn(params: GetProgramFnRequest): Promise<GetProgramFnResponse> {

@@ -87,6 +87,16 @@ const lightColors = {
   axfdg_loading_bg: alpha(LIGHT.INK_30, 0.5),
   axfdg_loading_color: alpha(LIGHT.INK_70, 0.1),
   axfdg_loading_second_color: LIGHT.INK_70,
+
+  axf_contextmenu_item_font_size: "13px",
+  axf_contextmenu_bg_color: lightAntdColors.component_background,
+  axf_contextmenu_border_color: lightAntdColors.border_color_base,
+  axf_contextmenu_border_radius: "4px",
+  axf_contextmenu_box_shadow: lightCustomColors.box_shadow_base,
+  axf_contextmenu_item_font_color: lightAntdColors.text_color,
+  axf_menu_item_hover_bg_color: lightAntdColors.primary_color,
+  axf_menu_item_hover_font_color: lightAntdColors.white_color,
+  axf_menubar_item_font_color: lightAntdColors.text_color,
 };
 
 // dark component colors
@@ -173,6 +183,16 @@ const darkColors: typeof lightColors = {
   axfdg_loading_bg: alpha(DARK.INK_50, 0.5),
   axfdg_loading_color: alpha(DARK.INK_70, 0.1),
   axfdg_loading_second_color: DARK.INK_70,
+
+  axf_contextmenu_item_font_size: "13px",
+  axf_contextmenu_bg_color: darkAntdColors.component_background,
+  axf_contextmenu_border_color: darkAntdColors.border_color_base,
+  axf_contextmenu_border_radius: "4px",
+  axf_contextmenu_box_shadow: darkCustomColors.box_shadow_base,
+  axf_contextmenu_item_font_color: darkAntdColors.text_color,
+  axf_menu_item_hover_bg_color: darkAntdColors.primary_color,
+  axf_menu_item_hover_font_color: darkAntdColors.white_color,
+  axf_menubar_item_font_color: darkAntdColors.text_color,
 };
 
 const commons = {

@@ -51,7 +51,9 @@ export const useUserStore = buildStore<UserStore>(
     ...userInitialState,
     setLoaded: (loaded: boolean) => set({ loaded }),
     setMe: async (me) => {
+      await usePageTabStore.getState().clearTab();
       await useAppStore.getState().callAppMenu();
+
       set({ me, authorityList: me.authorityList, programList: me.programList as PROGRAM_TYPES[] });
     },
     clearMe: () => {

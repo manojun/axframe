@@ -5,6 +5,7 @@ import { SMixinFlexColumn } from "@core/styles/emotion";
 import { User } from "services";
 import { css } from "@emotion/react";
 import { AXFrameLogo } from "@axframe/icon";
+import { IconAXFrame, IconAXFrameOpened } from "../icons";
 
 interface StyleProps {
   sideMenuOpened?: boolean;
@@ -19,8 +20,9 @@ function Logo({}: Props) {
 
   return (
     <Container sideMenuOpened={sideMenuOpened}>
-      {/*<TabLine />*/}
-      <AXFrameLogoOpened sideMenuOpened={sideMenuOpened}>{!sideMenuOpened && <AXFrameLogo />}</AXFrameLogoOpened>
+      <AXFrameLogoOpened sideMenuOpened={sideMenuOpened}>
+        {sideMenuOpened ? <IconAXFrameOpened /> : <IconAXFrame width={28} height={28} />}
+      </AXFrameLogoOpened>
     </Container>
   );
 }
@@ -44,8 +46,8 @@ const AXFrameLogoOpened = styled.div<StyleProps>`
   ${SMixinFlexColumn("center", "center")};
   width: 100%;
   height: 36px;
-  background: url("/logo.png") no-repeat center center;
   background-size: 164px;
+  color: ${(p) => p.theme.text_display_color};
   ${({ sideMenuOpened }) => {
     if (!sideMenuOpened) {
       return css`

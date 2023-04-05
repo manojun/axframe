@@ -1,27 +1,20 @@
 import * as React from "react";
 import styled from "@emotion/styled";
-import { AXFDGItemRenderProps, getCellValueByRowKey } from "@axframe/datagrid";
+import { AXFDGItemRenderProps } from "@axframe/datagrid";
 
 import { DatePicker } from "antd";
 import dayjs from "dayjs";
 
 export function DateEditor<T = any>({
   editable,
-  item,
-  column,
-  values,
+  value,
   handleSave,
   handleCancel,
   handleMove,
 }: AXFDGItemRenderProps<T>) {
-  const currentValue = React.useMemo(() => {
-    return getCellValueByRowKey(column.key, item);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [column, item, editable]);
-
   const handleSaveEdit = React.useCallback(
     (newValue: any, ...rest: any) => {
-      if (currentValue === newValue) {
+      if (value === newValue) {
         handleCancel?.();
         const [a, b] = rest;
         handleMove?.(a, b);
@@ -29,7 +22,7 @@ export function DateEditor<T = any>({
       }
       handleSave?.(newValue, ...rest);
     },
-    [currentValue, handleCancel, handleSave, handleMove]
+    [value, handleCancel, handleSave, handleMove]
   );
 
   const onKeyDown = React.useCallback<React.KeyboardEventHandler<HTMLInputElement>>(
@@ -61,7 +54,7 @@ export function DateEditor<T = any>({
           return; // 키 이벤트를 처리하지 않는다면 종료합니다.
       }
     },
-    [handleCancel, handleMove]
+    [handleCancel, handleSaveEdit]
   );
 
   const onBlur = React.useCallback<React.FocusEventHandler<HTMLInputElement>>(
@@ -80,7 +73,7 @@ export function DateEditor<T = any>({
   );
 
   if (editable) {
-    const defaultValue = currentValue ? dayjs(currentValue) : undefined;
+    const defaultValue = value ? dayjs(value) : undefined;
 
     return (
       <Container>
@@ -100,7 +93,7 @@ export function DateEditor<T = any>({
     // return <EditorInput ref={inputRef} defaultValue={currentValue} onKeyUp={onKeyUp} onBlur={onBlur} />;
   }
 
-  return <>{currentValue}</>;
+  return <>{value}</>;
 }
 
 const Container = styled.div`
