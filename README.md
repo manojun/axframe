@@ -1,6 +1,24 @@
 # axframe (The god of Front-end)
 
-React framework for professional developers
+AXFrame is a web application framework developed by AXISJ.
+A lightweight modular framework that provides developers with a set of tools and libraries for building scalable and maintainable web applications.
+AXFrame also includes a variety of built-in UI components, such as forms, tables, and charts, that you can easily customize to suit your application design.
+
+Applications developed with AXFrame have the following characteristics.
+
+- Fast development (Hot Module Replacement
+- High scalability
+- High maintenance (TypeScript, API management via API interface)
+- High Performance (React)
+- High security
+- Easy theme management
+- Easy multilingual support
+- Easy permission management
+- Basic support for Page Tab Management System and User Input Status Maintenance System
+- Provides automatic page generation
+- Provides a variety of UI components (Ant Design Optimization)
+
+## Features
 
 ## Requirement
 

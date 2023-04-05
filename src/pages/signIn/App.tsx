@@ -10,6 +10,7 @@ import { getTrimNonEmptyRegExp } from "@core/utils/formPatterns/getTrimNonEmptyR
 import { UserService } from "services";
 import { useUserStore } from "stores";
 import { LangSelector } from "components/LangSelector";
+import { IconAXFrameOpened } from "../../components/icons";
 
 interface Props {
   onSignIn?: (values: SignInFormItem) => Promise<void>;
@@ -105,7 +106,9 @@ function App({}: Props) {
         <SignInBox ref={ref1}>
           <SignInVisual />
           <SignInFormBox>
-            <SignInLogo />
+            <SignInLogo>
+              <IconAXFrameOpened />
+            </SignInLogo>
             <SignInBoxBody>
               <Form<SignInFormItem> form={form} onFinish={onSignIn} layout={"vertical"}>
                 <Form.Item
@@ -255,8 +258,8 @@ const SignInFormBox = styled.div`
 const SignInLogo = styled.div`
   width: 400px;
   height: 96px;
-  background: url("/logo.png") no-repeat center center;
-  background-size: 50%;
+  margin-top: 16px;
+  ${SMixinFlexColumn("center", "center")};
 `;
 
 const SignInBoxBody = styled.div`
