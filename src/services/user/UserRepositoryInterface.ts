@@ -31,7 +31,7 @@ export interface GetProgramFnRequest {
 }
 
 export interface GetProgramFnResponse {
-  ds: SystemProgramFn[];
+  ds: string[];
 }
 
 export interface PutChangePwRequest {

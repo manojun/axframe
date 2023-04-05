@@ -63,24 +63,7 @@ export class UserRepositoryMock implements UserRepositoryInterface {
   async getProgramFn(params: GetProgramFnRequest): Promise<GetProgramFnResponse> {
     await delay(100);
     return {
-      ds: [
-        {
-          key: "fn01",
-          label: "검색",
-        },
-        {
-          key: "fn02",
-          label: "저장",
-        },
-        {
-          key: "fn03",
-          label: "삭제",
-        },
-        {
-          key: "fn04",
-          label: "엑셀",
-        },
-      ],
+      ds: ["fn01", "fn02", "fn03", "fn04"],
     };
   }
 
