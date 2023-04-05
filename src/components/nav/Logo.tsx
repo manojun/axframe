@@ -4,7 +4,6 @@ import { useAppStore } from "stores";
 import { SMixinFlexColumn } from "@core/styles/emotion";
 import { User } from "services";
 import { css } from "@emotion/react";
-import { AXFrameLogo } from "@axframe/icon";
 import { IconAXFrame, IconAXFrameOpened } from "../icons";
 
 interface StyleProps {

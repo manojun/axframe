@@ -91,6 +91,7 @@ const config: webpack.Configuration = {
       patterns: [
         { from: "*.css", context: path.resolve(__dirname, "public") },
         { from: "*.jpg", context: path.resolve(__dirname, "public") },
+        // { from: "*.png", context: path.resolve(__dirname, "public") },
         { from: "*.ico", context: path.resolve(__dirname, "public") },
         { from: "404.html", context: path.resolve(__dirname, "public") },
       ],
