@@ -53,6 +53,10 @@ function TabItemMore({}: Props) {
       align={{ targetOffset: [-5, 0] }}
       open={visible}
       onOpenChange={(visible) => setVisible(visible)}
+      overlayStyle={{
+        maxHeight: "100vh",
+        overflow: "auto",
+      }}
     >
       <TabItemMoreContainer visible={visible}>
         <div>
