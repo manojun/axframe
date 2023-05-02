@@ -1,6 +1,6 @@
 {
   "name": "axframe",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "watch": {},
@@ -39,7 +39,7 @@
   "dependencies": {
     "@ant-design/icons": "^5.0.1",
     "@axframe/contextmenu": "^0.3.4",
-    "@axframe/datagrid": "^0.4.7",
+    "@axframe/datagrid": "^0.4.16",
     "@axframe/icon": "^0.1.13",
     "@emotion/css": "^11.10.0",
     "@emotion/react": "^11.10.0",

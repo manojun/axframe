@@ -1,11 +1,12 @@
 import * as React from "react";
 import styled from "@emotion/styled";
-import { useAppStore, useUserStore } from "../../stores";
-import { LangSelector } from "../LangSelector";
-import { IconText } from "../../@core/components/common";
+import { useAppStore, useUserStore } from "stores";
+import { LangSelector } from "components/LangSelector";
+import { IconText } from "@core/components/common";
 import { AXFIMoon, AXFISun } from "@axframe/icon";
 import { IconSideBarClosed, IconSideBarOpen } from "../icons";
-import { SMixinFlexRow } from "../../@core/styles/emotion";
+import { SMixinFlexRow } from "@core/styles/emotion";
+import pkg from "../../../package.json";
 
 interface Props {}
 
@@ -52,13 +53,7 @@ function PageFooter({}: Props) {
       </Tools>
       <FooterLinks>
         <span role={"copyright"}>2023 AXISJ Inc.</span>
-
-        {/*<Button size={"small"} type='link'>*/}
-        {/*  개인정보처리방침*/}
-        {/*</Button>*/}
-        {/*<Button size={"small"} type='link'>*/}
-        {/*  이용약관*/}
-        {/*</Button>*/}
+        <span role={"version"}>AXFrame {pkg.version}</span>
       </FooterLinks>
     </Container>
   );
@@ -90,8 +85,11 @@ const FooterLinks = styled.div`
   font-size: 11px;
 
   [role="copyright"] {
-    //color: #000;
     color: ${(p) => p.theme.text_body_color};
+    margin-right: 8px;
+  }
+  [role="version"] {
+    color: ${(p) => p.theme.text_heading_color};
     margin-right: 8px;
   }
 
