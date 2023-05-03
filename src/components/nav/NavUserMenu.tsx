@@ -8,7 +8,7 @@ import { SMixinScrollerStyle } from "@core/styles/emotion";
 import { MenuItem, useAppMenu } from "router";
 import { useAppStore, useUserStore } from "stores";
 import { AppMenu, AppMenuGroup } from "services";
-import { MenuIcon } from "../MenuIcon";
+import { MenuIcon } from "components/MenuIcon";
 
 interface StyleProps {
   sideMenuOpened?: boolean;
@@ -21,13 +21,14 @@ interface Props extends StyleProps {
 }
 
 function NavUserMenu({}: Props) {
+  const { currentLanguage } = useI18n();
+  const { linkByMenu } = useLink();
+  const { APP_MENUS } = useAppMenu();
+
   const sideMenuOpened = useAppStore((s) => s.sideMenuOpened);
   const openedMenuUuids = useUserStore((s) => s.openedMenuUuids);
   const setOpenedMenuUuids = useUserStore((s) => s.setOpenedMenuUuids);
   const selectedMenuUuid = useUserStore((s) => s.selectedMenuUuid);
-  const { currentLanguage } = useI18n();
-  const { linkByMenu } = useLink();
-  const { APP_MENUS } = useAppMenu();
 
   const menus = React.useMemo(() => {
     const getAppMenus = (menus: AppMenu[], pid: string): MenuItem[] => {
@@ -49,6 +50,7 @@ function NavUserMenu({}: Props) {
         })
         .filter(Boolean) as MenuItem[];
     };
+
     const getAppMenuGroups = (menuGroups: AppMenuGroup[]) => {
       return menuGroups.map((mg, idx) => {
         const children = getAppMenus(mg.children, `${idx}`);
@@ -92,7 +94,7 @@ function NavUserMenu({}: Props) {
       <Menu
         mode={"inline"}
         items={menus}
-        openKeys={openedMenuUuids}
+        defaultOpenKeys={sideMenuOpened ? openedMenuUuids : []}
         onOpenChange={onSideMenuOpenChange}
         selectedKeys={[selectedMenuUuid]}
         inlineIndent={14}

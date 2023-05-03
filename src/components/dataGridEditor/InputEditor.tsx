@@ -69,7 +69,15 @@ export function InputEditor<T = Record<string, any>>({
   if (editable) {
     return (
       <Container>
-        <Input bordered={false} autoFocus size={"small"} defaultValue={value} onKeyDown={onKeyDown} onBlur={onBlur} />
+        <Input
+          bordered={false}
+          autoFocus={true}
+          onFocus={(evt) => evt.target.select()}
+          size={"small"}
+          defaultValue={value}
+          onKeyDown={onKeyDown}
+          onBlur={onBlur}
+        />
       </Container>
     );
   }

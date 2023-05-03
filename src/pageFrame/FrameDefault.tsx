@@ -19,6 +19,7 @@ export const PageFrameContainer = styled.div`
   width: 100vw;
   background: ${(p) => p.theme.body_background};
   flex: 1;
+  overflow: auto;
 `;
 
 export default FrameDefault;

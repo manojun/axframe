@@ -78,6 +78,17 @@ export class AppRepositoryMock extends AppRepositoryInterface {
             },
             {
               multiLanguage: {
+                en: "LIST&FORM-LIST",
+                ko: "LIST&FORM-LIST",
+              },
+              iconTy: "Template",
+              level: 1,
+              sort: 5,
+              progCd: "EXAMPLE_LIST_WITH_FORM_LIST",
+              children: [],
+            },
+            {
+              multiLanguage: {
                 en: "LIST&LIST",
                 ko: "LIST&LIST",
               },

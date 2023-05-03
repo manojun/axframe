@@ -17,6 +17,16 @@ type HeaderSize = "small" | "medium" | "large";
 
 const PageLayoutContainer = styled.div<Props>`
   position: relative;
+
+  .datagrid-editable {
+    background: ${(p) => alpha(p.theme.primary_color, 0.1)};
+    user-select: none;
+
+    input {
+      user-select: all;
+    }
+  }
+
   ${({ stretch }) => {
     if (stretch) {
       return css`
@@ -80,6 +90,7 @@ const PageContentBox = styled.div<{ level?: 1 | 2 | 3 }>`
 
   .ant-input-group-addon {
     padding: 0 5px;
+
     .ant-btn.ant-btn-sm {
       padding: 0 2px;
 
@@ -203,10 +214,13 @@ const ToolBar = styled.div`
   h6 {
     margin: 0;
   }
+
   h1 {
   }
+
   h2 {
   }
+
   h3 {
   }
 `;

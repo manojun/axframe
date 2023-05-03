@@ -11,8 +11,8 @@ const LIGHT = {
   INK_5: "#FFFFFF", // component bg
   INK_10: "#F5F5F5", // body bg
   INK_20: "#f0f0f0", // tab, etc
-  INK_30: "#E7E7E7", // border
-  INK_40: "#D5D5D5", // form border
+  INK_30: "#dedede", // border split
+  INK_40: "#cfcfcf", // border
   INK_50: "#98A2B2",
   INK_60: "#757c86",
   INK_70: "#606C80",
