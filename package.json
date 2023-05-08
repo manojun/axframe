@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.0.1",
-    "@axframe/axficons": "^0.2.2",
+    "@axframe/axficons": "^0.2.3",
     "@axframe/contextmenu": "^0.3.4",
     "@axframe/datagrid": "^0.4.16",
     "@axframe/icon": "^0.1.13",
