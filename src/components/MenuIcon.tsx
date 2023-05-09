@@ -1,26 +1,32 @@
 import * as React from "react";
 import {
-  AXFIDefaultProgram,
-  AXFIGraph,
-  AXFIInbox,
-  AXFIProject,
-  AXFIReport,
-  AXFISetting,
-  AXFITemplate,
-  AXFIWriteForm,
-  AXFIListSearch,
-} from "@axframe/icon";
+  AXFIconsArchiveDuo,
+  AXFIconsExampleDuo,
+  AXFIconsGearShapeDuo,
+  AXFIconsMegaphoneDuo,
+  AXFIconsModuleDuo,
+  AXFIconsPaperPenDuo,
+  AXFIconsPermissionDuo,
+  AXFIconsSystemAppDuo,
+  AXFIconsSystemCommonDuo,
+  AXFIconsSystemMenuDuo,
+  AXFIconsSystemUserDuo,
+  AXFIconsSystemUserGroupDuo,
+} from "@axframe/axficons";
 
 export enum MenuIconType {
   Default,
-  Graph,
-  Inbox,
-  Project,
-  Report,
-  Setting,
-  Template,
-  WriteForm,
-  ListSearch,
+  Example,
+  Notice,
+  Archive,
+  Survey,
+  System,
+  SystemCommonCode,
+  SystemMenu,
+  SystemProgram,
+  SystemUser,
+  SystemUserGroup,
+  Permission,
 }
 
 interface Props {
@@ -35,26 +41,34 @@ interface Props {
 
 export const menuIcons = Object.values(MenuIconType).filter((v) => isNaN(Number(v)));
 
-export function MenuIcon({ typeName, secondColor, ...rest }: Props) {
+export function MenuIcon({ typeName, ...rest }: Props) {
+  rest.className = "ant-menu-item-icon";
+  rest.secondColor = "#fff";
   switch (typeName) {
-    case "Graph":
-      return <AXFIGraph className={"ant-menu-item-icon"} {...rest} />;
-    case "Inbox":
-      return <AXFIInbox className={"ant-menu-item-icon"} {...rest} />;
-    case "Project":
-      return <AXFIProject className={"ant-menu-item-icon"} {...rest} />;
-    case "Report":
-      return <AXFIReport className={"ant-menu-item-icon"} {...rest} />;
-    case "Setting":
-      return <AXFISetting className={"ant-menu-item-icon"} {...rest} />;
-    case "Template":
-      return <AXFITemplate className={"ant-menu-item-icon"} {...rest} />;
-    case "WriteForm":
-      return <AXFIWriteForm className={"ant-menu-item-icon"} {...rest} />;
-    case "ListSearch":
-      return <AXFIListSearch className={"ant-menu-item-icon"} {...rest} />;
+    case "Example":
+      return <AXFIconsExampleDuo {...rest} />;
+    case "Notice":
+      return <AXFIconsMegaphoneDuo {...rest} />;
+    case "Archive":
+      return <AXFIconsArchiveDuo {...rest} />;
+    case "Survey":
+      return <AXFIconsPaperPenDuo {...rest} />;
+    case "System":
+      return <AXFIconsGearShapeDuo {...rest} />;
+    case "SystemCommonCode":
+      return <AXFIconsSystemCommonDuo {...rest} />;
+    case "SystemMenu":
+      return <AXFIconsSystemMenuDuo {...rest} />;
+    case "SystemProgram":
+      return <AXFIconsSystemAppDuo {...rest} />;
+    case "SystemUser":
+      return <AXFIconsSystemUserDuo {...rest} />;
+    case "SystemUserGroup":
+      return <AXFIconsSystemUserGroupDuo {...rest} />;
+    case "Permission":
+      return <AXFIconsPermissionDuo {...rest} />;
     case "Default":
     default:
-      return <AXFIDefaultProgram className={"ant-menu-item-icon"} {...rest} />;
+      return <AXFIconsModuleDuo {...rest} />;
   }
 }

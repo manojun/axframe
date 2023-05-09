@@ -53,6 +53,7 @@ function TabItemMore({}: Props) {
       align={{ targetOffset: [-5, 0] }}
       open={visible}
       onOpenChange={(visible) => setVisible(visible)}
+      overlayClassName={"tab-item-more-dropdown"}
     >
       <TabItemMoreContainer visible={visible}>
         <div>

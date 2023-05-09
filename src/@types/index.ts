@@ -7,7 +7,7 @@ export interface ApiListResponse {
 
 export interface ApiPageResponse {
   pageCount: number;
-  total: number;
+  totalCount: number;
   pageNumber: number;
   pageSize: number;
 }
@@ -21,7 +21,6 @@ export interface MousePosition {
 
 export interface DataGridPageResponse extends ApiPageResponse {
   endPageNo?: number;
-  totalCount?: number;
 }
 
 export type DtoItemStatus = "C" | "U" | "D";

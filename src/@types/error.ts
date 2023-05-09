@@ -25,6 +25,7 @@ export enum ApiErrorCode {
   METHOD_ARGUMENT = "4150", //(403, "4150", "Method Argument")
   RUNTIME_EXCEPTION = "4160", //(403, "4160", "Runtime Exception")
   REMOTE_EXCEPTION = "4170", //(403, "4170", "Remote Exception")
+  SAME_REQ_EXCEPTION = "4180", //(403, "4180", "동일한 요청입니다.")
   EXPIRED_TOKEN = "9110", //(403, "9110", "토큰이 만료되었습니다.")
   INVALID_TOKEN = "9120", //(403, "9120", "토큰이 유효하지 않습니다.")
 }

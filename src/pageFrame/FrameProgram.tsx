@@ -93,7 +93,7 @@ const PageFrameNav = styled.div<StyleProps>`
     }
 
     return css`
-      width: 96px;
+      width: ${theme.side_menu_close_width}px;
     `;
   }}
 

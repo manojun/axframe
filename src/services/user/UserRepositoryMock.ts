@@ -50,7 +50,7 @@ export class UserRepositoryMock implements UserRepositoryInterface {
           "EXAMPLE_THREE_LIST",
           "EXAMPLE_STATS",
         ],
-        email: "jikook71@naver.com",
+        email: "tom@axisj.com",
         compCd: "V100",
       },
     };
